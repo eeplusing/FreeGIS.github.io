@@ -114,7 +114,7 @@
             source: new ol.source.OSM({
               wrapX: false
             })">
-<meta property="og:updated_time" content="2016-07-01T01:52:45.975Z">
+<meta property="og:updated_time" content="2016-07-01T04:48:11.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FreeGIS">
 <meta name="twitter:description" content="自定义动画
@@ -373,7 +373,6 @@
           // radius will be 5 at start and 30 at end.
           var radius = ol.easing.easeOut(elapsedRatio) * 10 + 5;
           var opacity = ol.easing.easeOut(1 - elapsedRatio);
-		  console.log(radius);
           var style = new ol.style.Style({
             image: new ol.style.Circle({
               radius: radius,
