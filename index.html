@@ -282,7 +282,8 @@
       
         
           
-            <h2 id="例子请参考demo"><a href="#例子请参考demo" class="headerlink" title="例子请参考demo."></a>例子请参考<a href="http://freegis.github.io/examples/ol3-echarts.html" target="_blank" rel="external">demo</a>.</h2>
+            <p>在Echarts官网中，有Echarts叠加百度地图展示一些可视化效果。其实百度地图API和Echarts是两个互相独立的东西，看到结合使用效果不错，于是对如何实现比较感兴趣。<br>查看源码可知，其实是将独立的Echarts和百度地图在一个容器中添加，然后，根据坐标对应好位置关系。此后，监听地图放大缩小平移等事件，通知echarts重绘。<br>那么，既然两者之间毫无关系，只有一层对应关系，那么其他地图API也就都能实现这样的功能，果不其然，笔者尝试以Ol3与Echarts做对应关系，也能得到想要的结果。</p>
+<h2 id="例子请参考ol3-echarts"><a href="#例子请参考ol3-echarts" class="headerlink" title="例子请参考ol3-echarts."></a>例子请参考<a href="http://freegis.github.io/examples/ol3-echarts.html" target="_blank" rel="external">ol3-echarts</a>.</h2>
           
         
       
