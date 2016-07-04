@@ -48,7 +48,7 @@
 			fetch('/data/province.json').then(function(res) {
 				if(res.ok){
 					res.text().then(function(data) {
-						console.log(data.entries);
+						console.log(data);
 						var xzqfeatures = geojsonFormat.readFeatures(data);
 						xzqSource.addFeatures(xzqfeatures);
 						var result = turf.dotDensity(data, 'population');
