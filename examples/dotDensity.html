@@ -45,14 +45,18 @@
 			
 			var xzqSource=new ol.source.Vector();
 			var dotDensitySource=new ol.source.Vector();
-			fetch('/data/province.json', {
-				method: 'GET'
-			}).then(function(json) {
-				var xzqfeatures = geojsonFormat.readFeatures(json);
-				xzqSource.addFeatures(xzqfeatures);
-				var result = turf.dotDensity(json, 'population');
-				var dotDensityfeatures=geojsonFormat.readFeatures(result);
-				dotDensitySource.addFeatures(dotDensityfeatures);
+			fetch('/data/province.json').then(function(res) {
+				if(res.ok){
+					res.json().then(function(data) {
+						console.log(data.entries);
+						var xzqfeatures = geojsonFormat.readFeatures(data);
+						xzqSource.addFeatures(xzqfeatures);
+						var result = turf.dotDensity(data, 'population');
+						var dotDensityfeatures=geojsonFormat.readFeatures(result);
+						dotDensitySource.addFeatures(dotDensityfeatures);
+					});
+				}
+				
 			});
 			
 			
