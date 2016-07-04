@@ -47,7 +47,7 @@
 			var dotDensitySource=new ol.source.Vector();
 			fetch('/data/province.json').then(function(res) {
 				if(res.ok){
-					res.json().then(function(data) {
+					res.text().then(function(data) {
 						console.log(data.entries);
 						var xzqfeatures = geojsonFormat.readFeatures(data);
 						xzqSource.addFeatures(xzqfeatures);
