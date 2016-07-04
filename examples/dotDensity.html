@@ -51,7 +51,7 @@
 						console.log(data);
 						var xzqfeatures = geojsonFormat.readFeatures(data);
 						xzqSource.addFeatures(xzqfeatures);
-						var result = turf.dotDensity(data, 'population');
+						var result = turf.dotDensity(JSON.parse(data), 'population');
 						var dotDensityfeatures=geojsonFormat.readFeatures(result);
 						dotDensitySource.addFeatures(dotDensityfeatures);
 					});
