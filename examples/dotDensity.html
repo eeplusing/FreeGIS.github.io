@@ -12,6 +12,7 @@
     </style>
     <link rel="stylesheet" href="http://openlayers.org/en/v3.16.0/css/ol.css" type="text/css">
     <script src="http://openlayers.org/en/v3.16.0/build/ol.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 	<script src="/js/src/ol3/turf-extend.js"></script>
     <script>
 		var map;
@@ -45,24 +46,15 @@
 			
 			var xzqSource=new ol.source.Vector();
 			var dotDensitySource=new ol.source.Vector();
-			fetch('/data/province.json').then(function(res) {
-				if(res.ok){
-					res.text().then(function(data) {
-						console.log(data.entries);
-						var xzqfeatures = geojsonFormat.readFeatures(data);
-						xzqSource.addFeatures(xzqfeatures);
-						var result = turf.dotDensity(data, 'population');
-						var dotDensityfeatures=geojsonFormat.readFeatures(result);
-						dotDensitySource.addFeatures(dotDensityfeatures);
-					});
-				}
-				
+	
+			$.getJSON('/data/province.json',function(data){
+				var xzqfeatures = geojsonFormat.readFeatures(data);
+				xzqSource.addFeatures(xzqfeatures);
+				var result = turf.dotDensity(data, 'population');
+				var dotDensityfeatures=geojsonFormat.readFeatures(result);
+				dotDensitySource.addFeatures(dotDensityfeatures);
 			});
-			
-			
-			
-			
-			
+		
 			var china = new ol.layer.Vector({
 				source: xzqSource,
 				style:dotDensityStyle
